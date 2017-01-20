@@ -1,0 +1,15 @@
+{
+  "name": "dailymenu",
+  "version": "1.0.0",
+  "description": "Get today's balanced menu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlmartinezmarquez/DailyMenu.git"
+  },
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "runtest"
+  },
+  "author": "Jose Martinez",
+  "license": "ISC"
+}
