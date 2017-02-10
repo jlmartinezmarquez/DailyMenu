@@ -1,0 +1,276 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Jose/LearningAngular/DailyMenu"
+	],
+	"file_history":
+	[
+		"/C/gitHubRepository/ConnectApi/Connect.Database/up/99908.PROD.Add.Locations.env.sql",
+		"/C/gitHubRepository/ConnectApi/Connect.Database/up/99909.PROD.Add.GroupLookups.with.ParentLocationId.env.sql",
+		"/C/gitHubRepository/ConnectApi/Connect.Database/up/99908.PROD.Split.USA.Canada.Africa.MiddleEast.env.sql",
+		"/C/Temp/ImportMarketersResult/log.txt",
+		"/C/Users/Jose.Martinez/Desktop/Marketers/1- Remove dups from UserProfile.sql",
+		"/C/Users/Jose.Martinez/Desktop/Marketers/DodgyDomains.sql",
+		"/C/Users/Jose.Martinez/Downloads/dodgydomains.txt",
+		"/C/Users/Jose.Martinez/Desktop/Marketers/2- InsertMissingMarketers.sql",
+		"/C/Jose/LearningAngular/DailyMenu/package.json",
+		"/C/Users/Jose.Martinez/Desktop/Publish.xml",
+		"/C/gitHubRepository/ConnectApi/Build/Modules/config.fsx",
+		"/C/gitHubRepository/ConnectApi/Build/Modules/logo.fsx",
+		"/C/gitHubRepository/ConnectApi/Build/Modules/process.fsx",
+		"/C/gitHubRepository/ConnectApi/build.fsx",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/node_modules/moment/min/moment-with-locales.js",
+		"/C/gitHubRepository/ConnectApi/paket.lock",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/dist/js/angularjs.connect.all.js",
+		"/C/CANOPY TESTS FOR SUGGESTED CONNECTIONS/Features/SuggestedConnections.feature",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/gulpfile.js",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/js/src/feed/feed.directive.js",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/js/src/services/feed.factory.js",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/Controllers/FeedController.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/Controllers/Base/UserProfileApiController.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/Controllers/ActivityFeedController.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Services/PostService.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/js/src/config/api.config.js",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/js/src/feed/feed.template.html",
+		"/C/gitHubRepository/ConnectApi/Tests/Connect.Tests/EndToEnd/Api/AnswerEndToEndTests.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Services/FeedService.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Model/FeedPagedModel.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/js/src/feed/feedquestion.template.html",
+		"/C/gitHubRepository/ConnectApi/Connect.Api/js/src/feed/feedarticle.directive.js",
+		"/C/gitHubRepository/ConnectApi/build.bat",
+		"/C/gitHubRepository/ConnectApi/Modules/Connect.Search.EventHub/Handlers/IndexableActivityChangedHandler.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Model/FeedModel.cs",
+		"/C/Windows/System32/drivers/etc/hosts"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\nIF",
+			"\n\tINSERT",
+			"VALUES (2,",
+			"VALUES (9,",
+			"VALUES (5,",
+			"VALUES (4,",
+			"VALUES (3,",
+			"VALUES (6, ",
+			"error",
+			"[dbo].[temp]",
+			"GO\n",
+			"GO",
+			"65",
+			"8a",
+			"(-",
+			"5C65",
+			"(-",
+			"015659D2",
+			"('",
+			"N",
+			" NULL, 0, 0, NULL, 1, 0,",
+			"[dbo].[AspNetUsers]",
+			"GO\n",
+			" NULL, 0, 0, NULL, 1, 1,",
+			"NULL, 0, 0, NULL, 1, 1, ",
+			"N",
+			"N'",
+			"NULL, 0, 0, NULL, 1, 0, ",
+			"')\n",
+			"[dbo].[AspNetUsers]",
+			"GO\n",
+			"NULL, 0, ",
+			"NULL, 0, 0, NULL, 0, 0, ",
+			"[dbo].[AspNetUsers]",
+			"GO\n",
+			"GO",
+			"GO\n",
+			"30, ",
+			"([Id], [",
+			"[Id], ",
+			"(1 row(s) affected)",
+			"userProfileId",
+			"userprofileid",
+			"in a few",
+			" p.StartInfo.Arguments",
+			"currentRequest",
+			"refreshFeed"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"IF",
+			"\tINSERT",
+			"VALUES (@USA,",
+			"VALUES (@MiddleEast,",
+			"VALUES (@LatinAmericaCaribbean,",
+			"VALUES (@Europe,",
+			"VALUES (@AsiaPacific,",
+			"VALUES (@AfricaId,",
+			"#UsersToCheck",
+			"",
+			"#UsersToCheck",
+			"",
+			"#UsersToCheck",
+			"",
+			"#UsersToCheck",
+			"",
+			"\\n",
+			"",
+			"([",
+			"",
+			" "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "dm.sublime-project",
+	"replace":
+	{
+		"height": 98.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"feedfac",
+				"Connect.Api\\js\\src\\services\\feed.factory.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 228.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
