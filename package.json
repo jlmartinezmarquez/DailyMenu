@@ -11,5 +11,8 @@
     "test": "runtest"
   },
   "author": "Jose Martinez",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.6.2"
+  }
 }
