@@ -4,7 +4,7 @@ menu.$inject = 	'DailyMenu.Menu.Config'[
 
 ];
 
-fucntion Menu(DailyMenuMenuConfig) {
+function Menu(DailyMenuMenuConfig) {
 	var directive = {
 		restrict: 'E',
 		replace: true,
