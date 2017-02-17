@@ -10,9 +10,10 @@ MenuFactory.$inject = [
 
 function MenuFactory($http, $q, apiConfig){
 
+	var menus - [];
+
 	var service = {
-		getMenu: getMenu,
-		Menu: Menu
+		getAvailableMenus: getAvailableMenus
 	};
 
 	/* Menu object definition */
@@ -29,7 +30,7 @@ function MenuFactory($http, $q, apiConfig){
 	}
 
 	/* TODO: Develop API endpoint returning a promise using $http and $q objects; hardcoded for now */
-	function getMenu(menuTypeId){
+	function getAvailableMenus(menuTypeId){
 		if (menuTypeId <= 0) {
 			return {
 				menuName: null,
@@ -38,25 +39,57 @@ function MenuFactory($http, $q, apiConfig){
 			};
 		}
 
-		return {
-				id: 1,
-				menuName: 'Arroz con pollo',
-				menuTypeId: 2,
-				ingredients: [
-					{
-						id: 1,
-						name: 'Arroz'
-					},
-					{
-						id: 2,
-						name: 'Pollo'
-					},
-					{
-						id: 3,
-						name: 'Zanahorias'
-					},
-				]
-		};
+	return 
+		[{
+			id: 1,
+			menuName: 'Arroz con pollo',
+			menuTypeId: 1,
+			ingredients: [
+				{
+					id: 1,
+					name: 'Arroz'
+				},
+				{
+					id: 2,
+					name: 'Pollo'
+				},
+				{
+					id: 3,
+					name: 'Zanahorias'
+				},
+			],
+			hadLastTimeOn: '16/02/2017'
+		},
+		{
+			id: 2,
+			menuName: 'Spaghetti con carne picada',
+			menuTypeId: 1,
+			ingredients: [
+				{
+					id: 4,
+					name: 'Pasta'
+				},
+				{
+					id: 5,
+					name: 'Carne picada'
+				},
+				{
+					id: 6,
+					name: 'Tomate frito'
+				},
+			],
+			hadLastTimeOn: '16/02/2017'
+		}];
+	}
+
+	/**
+	 * This method will return the data only from the response
+	 * @param {Object} response - the entire response from the api
+	 * @returns {Object} data
+	 */
+	function interceptResponse(response) {
+		var data = response.data;
+		return data;
 	}
 
 	return service;
