@@ -14,9 +14,9 @@ var buffer = require('vinyl-buffer');
 var gulpif = require('gulp-if');
 var runSequence = require('run-sequence');
 var templateCache = require('gulp-angular-templatecache');
-var swagger = require('gulp-swagger-endpoint');
 var taskListing = require('gulp-task-listing');
 var replace = require('gulp-replace');
+var plumber = require('gulp-plumber');
 
 // Add a task to render the output
 gulp.task('help', taskListing);
@@ -28,7 +28,7 @@ var config = {
 };
 
 // Karma Server instance
-var KarmaServer = require('karma').Server;
+// var KarmaServer = require('karma').Server;
 
 /*****************************TASKS********************************/
 /**************************COMMON TASKS****************************/
@@ -113,17 +113,22 @@ gulp.task('create:templates', function() {
 
 // JSHint task
 gulp.task('lint:js', function() {
-  return gulp.src([
-      './js/angularjs/**/*.js',
-      '!./js/angularjs/plaques/*', // copy&paste from previous code
-      '!./js/angularjs/plaques_individual/*', // copy&paste from previous code
-      '!./js/angularjs/templates/**/*.js',
-      '!./js/angularjs/config/api.config.js' // avoid 'too long errors'
-    ])
-    .pipe(jshint())
-    // You can look into pretty reporters as well, but that's another story
-    .pipe(jshint.reporter('default'));
+	return gulp.src(['./src/**/*.js', '!./templates/**/*.js'])
+		.pipe(jshint())
+		// You can look into pretty reporters as well, but that's another story
+		.pipe(jshint.reporter('default'));
 });
+
+//gulp.task('build:indexfile', function() {
+//	return gulp.src('./index.template.html')
+//		// And put it in the dist folder
+//		.pipe(template({
+//			version: config.version,
+//			buildLabel: config.buildLabel
+//		}))
+//		.pipe(rename('index.html'))
+//		.pipe(gulp.dest('./'));
+//});
 
 gulp.task('build:del:tempfiles', function() {
   // to clean temp files
@@ -131,17 +136,26 @@ gulp.task('build:del:tempfiles', function() {
 
 // build for development
 gulp.task('build:dev', function() {
-  runSequence(
-    ['clean', 'config:dev'], ['build:style', 'lint:js'], ['build:js:myaccount'], ['build:del:tempfiles']
-  );
+	runSequence(
+		['clean', 'config:dev'],
+		['create:templates'],
+		['build:style', 'lint:js'],
+		['build:js:dailymenu'],//, 'build:indexfile'],
+		['build:del:tempfiles']
+	);
 });
 
 //  build for production
 gulp.task('build:prod', function() {
-  runSequence(
-    ['clean', 'config:prod'], ['build:style', 'lint:js'], ['build:js:myaccount', 'build:masterpage'], ['build:del:tempfiles']
-  );
+	runSequence(
+		['clean', 'config:prod'],
+		['create:templates'],
+		['build:style', 'lint:js'],
+		['build:js:dailymenu', 'build:indexfile'],
+		['build:del:tempfiles']
+	);
 });
+
 
 // watchers
 gulp.task('watch', ['build:dev'], function() {
@@ -154,7 +168,7 @@ gulp.task('watch', ['build:dev'], function() {
 	], [
 		'create:templates',
 		'lint:js',
-		'build:angular:connect'
+		'build:js:dailymenu'
 	]);
 
 	// SCSS watcher
@@ -175,12 +189,10 @@ gulp.task('build:js:dailymenu', ['create:templates'], function() {
   });
 
   return b.bundle()
-    .pipe(source('angularjs.dailymenu.all.js'))
-    .pipe(buffer())
+    .pipe(source('main.dailymenu.js'))
+    //.pipe(buffer())
     //.pipe(cachebust.resources())
-    .pipe(sourcemaps.init({
-      loadMaps: true
-    }))
+    //.pipe(sourcemaps.init({ loadMaps: true }))
     // Add transformation tasks to the pipeline here.
     // only if in production UGLIFY
     .pipe(gulpif(config.buildMode === 'prod', uglify()))
@@ -188,6 +200,12 @@ gulp.task('build:js:dailymenu', ['create:templates'], function() {
       console.log(error);
       gutil.log(error);
     })
+    .pipe(plumber(function(error) {
+      // Output an error message
+      console.log(gutil.colors.red('Error (' + error.plugin + '): ' + error.message));
+      // emit the end event, to properly end the task
+      this.emit('end');
+    }))
     .pipe(sourcemaps.write('./maps/'))
     .pipe(gulp.dest('./dist/js/'));
 });

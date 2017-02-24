@@ -10,7 +10,7 @@ MenuFactory.$inject = [
 
 function MenuFactory($http, $q, apiConfig){
 
-	var menus - [];
+	var menus = [];
 
 	var service = {
 		getAvailableMenus: getAvailableMenus

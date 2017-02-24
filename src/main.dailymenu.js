@@ -19,7 +19,7 @@ var config = require('./config/config');
 var apiConfig = require('./config/api.config');
 
 // Load modules
-require('./day/module');
+require('./menu/_module');
 
 // Run Block
 var runDependencies = [];
