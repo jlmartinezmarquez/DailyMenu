@@ -2,8 +2,8 @@
 
 var angular = require('angular');
 
-var MenuDirective = require('./menu.directive')
-var MenuDataFactory = require('../services/menu.data.factory')
+var MenuDirective = require('./menu.directive');
+var MenuDataFactory = require('../services/menu.data.factory');
 
 // Module definition
 
