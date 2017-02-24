@@ -16,7 +16,6 @@ var runSequence = require('run-sequence');
 var templateCache = require('gulp-angular-templatecache');
 var taskListing = require('gulp-task-listing');
 var replace = require('gulp-replace');
-var plumber = require('gulp-plumber');
 
 // Add a task to render the output
 gulp.task('help', taskListing);
@@ -102,13 +101,13 @@ gulp.task('build:style', function() {
 
 // create module for templates
 gulp.task('create:templates', function() {
-  gulp.src('./js/angularjs/**/*.html')
+  gulp.src('./src/**/*.html')
     .pipe(templateCache({
       transformUrl: function(url) {
         return '/dist/js/' + url;
       }
     }))
-    .pipe(gulp.dest('./js/angularjs/templates'));
+    .pipe(gulp.dest('./src/templates'));
 });
 
 // JSHint task
@@ -163,8 +162,8 @@ gulp.task('watch', ['build:dev'], function() {
 	gulp.watch([
 		'./index.html',
 		'./**/*.html',
-		'./js/src/**/*.js',
-		'!./js/src/**/templates.js'
+		'./src/**/*.js',
+		'!./src/**/templates.js'
 	], [
 		'create:templates',
 		'lint:js',
@@ -184,12 +183,12 @@ gulp.task('build:js:dailymenu', ['create:templates'], function() {
 
   // set up the browserify instance on a task basis
   var b = browserify({
-    entries: './main.dailymenu.js',
+    entries: './src/main.dailymenu.js',
     debug: config.buildMode === 'dev'
   });
 
   return b.bundle()
-    .pipe(source('main.dailymenu.js'))
+    .pipe(source('./src/main.dailymenu.js'))
     //.pipe(buffer())
     //.pipe(cachebust.resources())
     //.pipe(sourcemaps.init({ loadMaps: true }))
@@ -200,12 +199,6 @@ gulp.task('build:js:dailymenu', ['create:templates'], function() {
       console.log(error);
       gutil.log(error);
     })
-    .pipe(plumber(function(error) {
-      // Output an error message
-      console.log(gutil.colors.red('Error (' + error.plugin + '): ' + error.message));
-      // emit the end event, to properly end the task
-      this.emit('end');
-    }))
     .pipe(sourcemaps.write('./maps/'))
     .pipe(gulp.dest('./dist/js/'));
 });

@@ -1,0 +1,1 @@
+angular.module('templates').run(['$templateCache', function($templateCache) {$templateCache.put('/dist/js/menu/menu.template.html','<div class="menu-container">\r\n\t\r\n\t<b>Is this visible</b>\r\n\r\n\t<ul>\r\n\t\t<li ng-repeat="">\r\n\r\n\t\t</li>\t\r\n\t</ul>\r\n</div>');}]);

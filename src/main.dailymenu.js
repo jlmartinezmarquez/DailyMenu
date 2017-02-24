@@ -26,7 +26,6 @@ var runDependencies = [];
 
 function run() {
 
-
 	// any code which should run on start
 
 }
@@ -41,7 +40,8 @@ angular
 		'ngMessages',
 		'ngSanitize',
 		'textAngular',
-		'DailyMenu.Day',
+		'DailyMenu.Services',
+		'DailyMenu.Menu',
 		'templates',
 	])
 	// conf

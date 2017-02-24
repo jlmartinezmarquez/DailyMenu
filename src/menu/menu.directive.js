@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
-menu.$inject = 	'DailyMenu.Menu.Config'[
-
+menu.$inject = 	[
+	'DailyMenu.Menu.Config'
 ];
 
 function Menu(DailyMenuMenuConfig) {
