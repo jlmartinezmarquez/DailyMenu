@@ -39,49 +39,49 @@ function MenuFactory($http, $q, apiConfig){
 			};
 		}
 
-		return 
+		var toReturn = 
 		[
 			{
-				"id": "1",
-				"menuName": "Arroz con pollo",
-				"menuTypeId": "1",
-				"ingredients": {
+				'id': '1',
+				'menuName': 'Arroz con pollo',
+				'menuTypeId': '1',
+				'hadLastTimeOn': '16/02/2017',
+				'ingredients': [
 					{
-						"id": "1",
-						"name": "Arroz"
+						'id': '1',
+						'name': 'Arroz'
 					},
 					{
-						"id": "2",
-						"name": "Pollo"
+						'id': '2',
+						'name': 'Pollo'
 					},
 					{
-						"id": "3",
-						"name": "Zanahorias"
-					},
-				},
-				"hadLastTimeOn": "16/02/2017"
+						'id': '3',
+						'name': 'Zanahorias'
+					}]				
 			},
 			{
-				"id": "2,
-				"menuName": "Spaghetti con carne picada",
-				"menuTypeId": "1",
-				"ingredients": {
+				'id': '2',
+				'menuName': 'Spaghetti con carne picada',
+				'menuTypeId': '1',
+				'hadLastTimeOn': '16/02/2017',
+				'ingredients': [
 					{
-						"id": "4",
-						"name": "Pasta"
+						'id': '4',
+						'name': 'Pasta'
 					},
 					{
-						"id": "5",
-						"name": "Carne picada"
+						'id': '5',
+						'name': 'Carne picada'
 					},
 					{
-						"id": "6",
-						"name": "Tomate frito"
-					},
-				},
-				"hadLastTimeOn": "16/02/2017"
+						'id': '6',
+						'name': 'Tomate frito'
+					}]
 			}
 		];
+
+		return toReturn;
 	}
 
 	/**
