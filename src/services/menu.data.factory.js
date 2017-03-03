@@ -31,7 +31,7 @@ function MenuFactory($http, $q, apiConfig){
 
 	/* TODO: Develop API endpoint returning a promise using $http and $q objects; hardcoded for now */
 	function getAvailableMenus(menuTypeId){
-		if (menuTypeId <= 0) {
+		if (menuTypeId === '') {
 			return {
 				menuName: null,
 				menuTypeId: null,

@@ -26,6 +26,10 @@ function Menu(DailyMenuMenuConfig) {
 	function MenuController(MenuFactory) {
 		var vm = this;
 
+		//properties
+		vm.AvailableLunchMenus = [];
+		vm.AvailableDinnerMenus = [];
+
 		//methods
 		vm.getAvailableMenusForLunch = getAvailableMenusForLunch;
 		vm.setAvailableMenusForLunch = setAvailableMenusForLunch;

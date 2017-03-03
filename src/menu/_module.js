@@ -13,7 +13,7 @@ angular.module('DailyMenu.Menu', [])
 	})	
 	.config(config)
 	.directive('menu', MenuDirective)
-	.factory('MenuDataFactory', MenuDataFactory);
+	.factory('MenuFactory', MenuDataFactory);
 
 // Config function
 
