@@ -14,6 +14,7 @@ var buffer = require('vinyl-buffer');
 var gulpif = require('gulp-if');
 var runSequence = require('run-sequence');
 var templateCache = require('gulp-angular-templatecache');
+var template = require('gulp-template');
 var taskListing = require('gulp-task-listing');
 var replace = require('gulp-replace');
 
@@ -63,16 +64,29 @@ gulp.task('clean', ['clean:js', 'clean:css'], function() {
 });
 
 gulp.task('copy:res', function() {
-  // We can copy the font files into the dist folder, otherwise we could use the CDN
-  // and override the variable $fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.5.0/fonts" !default;
-  // Copy font files
+  gulp.src(['./img/**/*'], {
+    base: './img/'
+  }).pipe(gulp.dest('./dist/img/'));
+
+  // bootstrap
+  gulp.src('./node_modules/bootstrap/dist/css/bootstrap.min.css')
+    .pipe(gulp.dest('./dist/style/'));
+  gulp.src('./node_modules/bootstrap/dist/js/bootstrap.min.js')
+    .pipe(gulp.dest('./dist/js/'));
+
+  // jQuery
+  gulp.src('./node_modules/jquery/dist/jquery.min.js')
+    .pipe(gulp.dest('./dist/js/'));
 
   // textAngular
   gulp.src('./node_modules/textangular/dist/textAngular.css')
     .pipe(gulp.dest('./dist/style/'));
 
-  return gulp.src(['./node_modules/font-awesome/fonts/**/*'], {
-    base: './node_modules/font-awesome/fonts/'
+  // We can copy the font files into the dist folder, otherwise we could use the CDN
+  // and override the variable $fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.5.0/fonts" !default;
+  // Copy font files
+  gulp.src(['./node_modules/mdi/fonts/**/*'], {
+    base: './node_modules/mdi/fonts/'
   }).pipe(gulp.dest('./dist/fonts/'));
 });
 
@@ -118,16 +132,16 @@ gulp.task('lint:js', function() {
 		.pipe(jshint.reporter('default'));
 });
 
-//gulp.task('build:indexfile', function() {
-//	return gulp.src('./index.template.html')
-//		// And put it in the dist folder
-//		.pipe(template({
-//			version: config.version,
-//			buildLabel: config.buildLabel
-//		}))
-//		.pipe(rename('index.html'))
-//		.pipe(gulp.dest('./'));
-//});
+gulp.task('build:indexfile', function() {
+  return gulp.src('./index.template.html')
+    // And put it in the dist folder
+    .pipe(template({
+      version: config.version,
+      buildLabel: config.buildLabel
+    }))
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('./'));
+});
 
 gulp.task('build:del:tempfiles', function() {
   // to clean temp files
@@ -139,7 +153,7 @@ gulp.task('build:dev', function() {
 		['clean', 'config:dev'],
 		['create:templates'],
 		['build:style', 'lint:js'],
-		['build:js:dailymenu'],//, 'build:indexfile'],
+		['build:js:dailymenu', 'build:indexfile'],
 		['build:del:tempfiles']
 	);
 });
@@ -181,15 +195,21 @@ gulp.task('watch', ['build:dev'], function() {
 gulp.task('build:js:dailymenu', ['create:templates'], function() {
   console.log('AngJS build version: ' + config.buildMode);
 
+  // using the template create the env config constant
+  gulp.src('./js/src/config/env.config.tmpl.js')
+    .pipe(template({config: config.buildMode}))
+    .pipe(rename('env.config.js'))
+    .pipe(gulp.dest('./js/src/config/'));
+
   // set up the browserify instance on a task basis
   var b = browserify({
     entries: './src/main.dailymenu.js',
-    debug: config.buildMode === 'dev'
+    debug: config.buildMode === 'prod'
   });
 
   return b.bundle()
-    .pipe(source('./src/main.dailymenu.js'))
-    //.pipe(buffer())
+    .pipe(source('angularjs.dailymenu.all.js'))
+    .pipe(buffer())
     //.pipe(cachebust.resources())
     //.pipe(sourcemaps.init({ loadMaps: true }))
     // Add transformation tasks to the pipeline here.

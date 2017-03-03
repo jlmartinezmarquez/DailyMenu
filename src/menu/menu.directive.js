@@ -1,6 +1,6 @@
 'use strict';
 
-menu.$inject = 	[
+Menu.$inject = 	[
 	'DailyMenu.Menu.Config'
 ];
 
@@ -57,4 +57,4 @@ function Menu(DailyMenuMenuConfig) {
 	}
 }
 
-model.exports = menu;
+module.exports = Menu;
