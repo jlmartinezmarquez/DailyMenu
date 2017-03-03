@@ -12,7 +12,7 @@ angular.module('DailyMenu.Menu', [])
 		partialPath: '/dist/js/menu/'
 	})	
 	.config(config)
-	.directive('menu', 'MenuDirective')
+	.directive('menu', MenuDirective)
 	.factory('MenuDataFactory', MenuDataFactory);
 
 // Config function

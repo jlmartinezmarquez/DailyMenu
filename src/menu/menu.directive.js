@@ -53,8 +53,9 @@ function Menu(DailyMenuMenuConfig) {
 			console.error(error);
 		}		
 
-		return directive;
 	}
+	
+	return directive;
 }
 
 module.exports = Menu;

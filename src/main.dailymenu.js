@@ -20,6 +20,8 @@ var apiConfig = require('./config/api.config');
 
 // Load modules
 require('./menu/_module');
+require('./services/_module');
+require('./templates/_module');
 
 // Run Block
 var runDependencies = [];
@@ -40,9 +42,10 @@ angular
 		'ngMessages',
 		'ngSanitize',
 		'textAngular',
+		//DailyMenu modules
 		'DailyMenu.Services',
 		'DailyMenu.Menu',
-		'templates',
+		'templates'
 	])
 	// conf
 	.config(config)
