@@ -49,7 +49,9 @@ function Menu(DailyMenuMenuConfig) {
 //			MenuFactory
 //				.getAvailableMenus('Lunch')
 //				.then(vm.setAvailableMenusForLunch, onGetError);
-			return MenuFactory.getAvailableMenus('Lunch');
+			var toReturn = MenuFactory.getAvailableMenus('Lunch');
+			console.log(toReturn);
+			return toReturn;
 		}
 
 		function setAvailableMenusForLunch(availableMenus) {
