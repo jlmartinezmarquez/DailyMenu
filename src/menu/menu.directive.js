@@ -1,5 +1,7 @@
 'use strict';
 
+var _ = window._ || require('lodash');
+
 Menu.$inject = 	[
 	'DailyMenu.Menu.Config'
 ];
@@ -44,9 +46,10 @@ function Menu(DailyMenuMenuConfig) {
 		}
 
 		function getAvailableMenusForLunch() {
-			MenuFactory
-				.getAvailableMenus('Lunch')
-				.then(vm.setAvailableMenusForLunch, onGetError);
+//			MenuFactory
+//				.getAvailableMenus('Lunch')
+//				.then(vm.setAvailableMenusForLunch, onGetError);
+			return MenuFactory.getAvailableMenus('Lunch');
 		}
 
 		function setAvailableMenusForLunch(availableMenus) {
