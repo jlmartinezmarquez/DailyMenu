@@ -132,16 +132,16 @@ gulp.task('lint:js', function() {
 		.pipe(jshint.reporter('default'));
 });
 
-gulp.task('build:indexfile', function() {
-  return gulp.src('./index.template.html')
-    // And put it in the dist folder
-    .pipe(template({
-      version: config.version,
-      buildLabel: config.buildLabel
-    }))
-    .pipe(rename('index.html'))
-    .pipe(gulp.dest('./'));
-});
+// gulp.task('build:indexfile', function() {
+//   return gulp.src('./index.template.html')
+//     // And put it in the dist folder
+//     .pipe(template({
+//       version: config.version,
+//       buildLabel: config.buildLabel
+//     }))
+//     .pipe(rename('index.html'))
+//     .pipe(gulp.dest('./'));
+// });
 
 gulp.task('build:del:tempfiles', function() {
   // to clean temp files
@@ -153,7 +153,7 @@ gulp.task('build:dev', function() {
 		['clean', 'config:dev'],
 		['create:templates'],
 		['build:style', 'lint:js'],
-		['build:js:dailymenu', 'build:indexfile'],
+		['build:js:dailymenu'], //'build:indexfile'],
 		['build:del:tempfiles']
 	);
 });
@@ -164,7 +164,7 @@ gulp.task('build:prod', function() {
 		['clean', 'config:prod'],
 		['create:templates'],
 		['build:style', 'lint:js'],
-		['build:js:dailymenu', 'build:indexfile'],
+		['build:js:dailymenu'], //'build:indexfile'],
 		['build:del:tempfiles']
 	);
 });

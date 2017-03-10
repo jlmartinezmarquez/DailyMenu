@@ -1,3 +1,8 @@
 .header{
-	float: right;
+	.col-xs-2 {
+		float: right;
+	}
+	.col-xs-8 {
+		align: left;
+	}
 }
