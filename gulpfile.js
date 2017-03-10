@@ -93,7 +93,7 @@ gulp.task('copy:res', function() {
 gulp.task('compile:css', function() {
   // dailymenu.scss should have: @import "../node_modules/font-awesome/scss/font-awesome.scss";
   // compiling the style
-  return gulp.src('./style/main.scss')
+  return gulp.src('./src/style/main.scss')
     // The onerror handler prevents Gulp from crashing when you make a mistake in your SASS
     .pipe(sass({
       onError: function(e) {

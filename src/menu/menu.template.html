@@ -1,10 +1,25 @@
-<div class="menu-container">
-	
-	<b>Lunch options:</b>
+<div class="day-view-menu">
+	<div class="row">
+		<div class="col-xs-12">	
+			<div class="title">
+				<h4>Lunch options:</h4>
+			</div>
+		</div>
+		<div class="col-xs-12">	
+			<ul>
+				<li ng-repeat="lunchMenu in AvailableLunchMenus">				
+					<a href="" target="_blank" title="{{::lunchMenu.menuName}}"></a>
+				</li>	
+			</ul>
+		</div>
 
-	<ul>
-		<li ng-repeat="lunchMenu in AvailableLunchMenus">
-			<a href="" target="_blank" title="{{::lunchMenu.menuName}}">
-		</li>	
-	</ul>
+		<div class="col-xs-12">	
+			<div class="title">
+				<h4>Dinner options:</h4>
+			</div>
+		</div>
+		<div class="col-xs-12">	
+
+		</div>
+	</div>
 </div>

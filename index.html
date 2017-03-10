@@ -19,11 +19,27 @@
 
 		<script src="./node_modules/angular/angular.min.js"></script>
 
+		<!-- Bootstrap 3.3.6 -->
+		<link rel="stylesheet" href="./dist/style/bootstrap.min.css">
+		<script type="text/javascript" src="./dist/js/bootstrap.min.js"></script>
+
 		<!-- CSS style -->
 		<link rel="stylesheet" href="./dist/style/style.css?201712393926">
 	</head>
 	<body>
-		Here comes the Angular bit:<br />
-		<menu></menu>
+		<div class="container">
+			<div class="row logo">
+			<h2>Daily meals</h2>
+			</div>
+			<div class="row header">
+				<div class="col-xs-4">
+					<a href="#" alt="">Today</a>
+				</div>
+				<div class="col-xs-4">
+					<a href="#" alt="">Week</a>
+				</div>
+			</div>
+			<menu></menu>
+		</div>
 	</body>
 </html>
