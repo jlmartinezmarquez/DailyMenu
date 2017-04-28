@@ -39,6 +39,11 @@ function MenuFactory($http, $q, apiConfig){
 			};
 		}
 
+		var uri = apiConfig.BASE_URL + apiConfig.API_URLS.GET_MENU;
+
+//TODO: calling the API here to get the json below from the PAI rather than hardcoded
+		//return $http.get(uri);
+
 		var toReturn = 
 		[
 			{
