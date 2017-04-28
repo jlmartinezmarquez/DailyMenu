@@ -1,16 +1,26 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 using DailyMenu.Api.App_Start;
+using DailyMenu.Api.Ninject;
+using Ninject;
 
 namespace DailyMenu.Api
 {
     public class Global : System.Web.HttpApplication
     {
+        public static IKernel ServiceLocator;
 
         protected void Application_Start(object sender, EventArgs e)
         {
             GlobalConfiguration.Configure(WebApiConfig.Configure);
+
+            GlobalConfiguration.Configuration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+
+            ServiceLocator = new Bootstrapper().Start();
+
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), new ControllerActivator());
         }
 
         protected void Session_Start(object sender, EventArgs e)

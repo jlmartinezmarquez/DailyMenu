@@ -14,6 +14,7 @@ namespace DailyMenu.Api.Controllers
         }
 
         [HttpGet]
+        [Route("")]
         public IHttpActionResult Get()
         {
             return Ok(_menuService.GetExampleMenus());

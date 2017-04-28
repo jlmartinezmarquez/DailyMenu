@@ -130,15 +130,19 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Ninject\ControllerActivator.cs" />
+    <Compile Include="Ninject\ControllerDeactivator.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Ninject\NinjectDependencyResolver.cs" />
-    <Compile Include="Ninject\NinjectDependencyScope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DailyMenu.Configuration\DailyMenu.Configuration.csproj">
+      <Project>{3B0AA266-B83B-4219-A7B3-D803C1F3B750}</Project>
+      <Name>DailyMenu.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DailyMenu.Interfaces\DailyMenu.Interfaces.csproj">
       <Project>{3e2d42d8-e936-4c36-b524-21f67d673c59}</Project>
       <Name>DailyMenu.Interfaces</Name>
@@ -146,6 +150,14 @@
     <ProjectReference Include="..\DailyMenu.Models\DailyMenu.Models.csproj">
       <Project>{4B629905-9BF6-487C-A2CE-1FB20BF5A467}</Project>
       <Name>DailyMenu.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DailyMenu.Repositories\DailyMenu.Repositories.csproj">
+      <Project>{A0044C8E-8408-4EB2-834B-323CF1003146}</Project>
+      <Name>DailyMenu.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DailyMenu.Services\DailyMenu.Services.csproj">
+      <Project>{A2E5223D-1097-4137-8341-5E103AF4873A}</Project>
+      <Name>DailyMenu.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

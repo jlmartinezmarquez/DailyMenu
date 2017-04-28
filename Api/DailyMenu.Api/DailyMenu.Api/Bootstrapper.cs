@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using DailyMenu.Configuration;
+using DailyMenu.Repositories;
+using DailyMenu.Services;
 using Ninject;
 using Ninject.Extensions.Conventions;
 using Ninject.Modules;
@@ -38,6 +41,11 @@ namespace DailyMenu.Api
 
             var modules = new List<INinjectModule>();
 
+            modules.Add(new NinjectRepositoryModule());
+
+            modules.Add(new NinjectServicesModule());
+
+            modules.Add(new NinjectConfigurationModule());
 
             if (additionalModules != null && additionalModules.Length > 0)
                 modules.AddRange(additionalModules);

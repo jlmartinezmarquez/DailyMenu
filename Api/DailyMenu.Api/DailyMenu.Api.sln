@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyMenu.Models", "DailyMe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyMenu.Repositories", "DailyMenu.Repositories\DailyMenu.Repositories.csproj", "{A0044C8E-8408-4EB2-834B-323CF1003146}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DailyMenu.Modules", "DailyMenu.Modules", "{FF80DE93-94FC-4E97-9EFF-3972934F1E6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyMenu.Configuration", "DailyMenu.Configuration\DailyMenu.Configuration.csproj", "{3B0AA266-B83B-4219-A7B3-D803C1F3B750}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,8 +43,15 @@ Global
 		{A0044C8E-8408-4EB2-834B-323CF1003146}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0044C8E-8408-4EB2-834B-323CF1003146}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0044C8E-8408-4EB2-834B-323CF1003146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B0AA266-B83B-4219-A7B3-D803C1F3B750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B0AA266-B83B-4219-A7B3-D803C1F3B750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B0AA266-B83B-4219-A7B3-D803C1F3B750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B0AA266-B83B-4219-A7B3-D803C1F3B750}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B0AA266-B83B-4219-A7B3-D803C1F3B750} = {FF80DE93-94FC-4E97-9EFF-3972934F1E6D}
 	EndGlobalSection
 EndGlobal
