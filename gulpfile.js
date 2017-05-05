@@ -126,7 +126,7 @@ gulp.task('create:templates', function() {
 
 // JSHint task
 gulp.task('lint:js', function() {
-	return gulp.src(['./src/**/*.js', '!./templates/**/*.js'])
+	return gulp.src(['./src/**/*.js', '!./src/templates/**/*.js'])
 		.pipe(jshint())
 		// You can look into pretty reporters as well, but that's another story
 		.pipe(jshint.reporter('default'));
