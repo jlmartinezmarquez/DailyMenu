@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
 using DailyMenu.Configuration;
 using DailyMenu.Repositories;
@@ -15,9 +16,9 @@ namespace DailyMenu.Api
         Instance
     }
 
-    public class Bootstrapper
+    public class Bootstrapper : IDisposable
     {
-        private static StandardKernel _kernel;
+        private StandardKernel _kernel;
 
         public StandardKernel Kernel
         {
@@ -37,8 +38,6 @@ namespace DailyMenu.Api
                 .Select(y => y.BaseType == typeof(ApiController))
                 .BindToSelf());
 
-            //_kernel.Bind<DataContext>().ToSelf().InRequestScope();
-
             var modules = new List<INinjectModule>();
 
             modules.Add(new NinjectRepositoryModule());
@@ -53,6 +52,11 @@ namespace DailyMenu.Api
             _kernel.Load(modules.ToArray());
 
             return _kernel;
+        }
+
+        public void Dispose()
+        {
+            _kernel?.Dispose();
         }
     }
 }
