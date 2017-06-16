@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A0044C8E-8408-4EB2-834B-323CF1003146}</ProjectGuid>
+    <ProjectGuid>{62536A0D-B1A8-4BDD-8F6B-9A6B0EECF4C0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DailyMenu.Repositories</RootNamespace>
-    <AssemblyName>DailyMenu.Repositories</AssemblyName>
+    <RootNamespace>DailyMenu.Lifetime</RootNamespace>
+    <AssemblyName>DailyMenu.Lifetime</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,10 +34,6 @@
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ninject.Extensions.Conventions, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.Extensions.Conventions.3.2.0.0\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,19 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuRepository.cs" />
-    <Compile Include="NinjectRepositoryModule.cs" />
+    <Compile Include="LoadedKernel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DailyMenu.Interfaces\DailyMenu.Interfaces.csproj">
-      <Project>{3E2D42D8-E936-4C36-B524-21F67D673C59}</Project>
-      <Name>DailyMenu.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DailyMenu.Models\DailyMenu.Models.csproj">
-      <Project>{4B629905-9BF6-487C-A2CE-1FB20BF5A467}</Project>
-      <Name>DailyMenu.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

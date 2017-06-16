@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"api",
+				"apiConfig"
+			],
+			[
 				"get",
 				"getAvailableMenus"
 			],
@@ -24,19 +28,67 @@
 	"buffers":
 	[
 		{
-			"file": "src/menu/menu.directive.js",
+			"file": "src/services/menu.data.factory.js",
 			"settings":
 			{
-				"buffer_size": 1281,
+				"buffer_size": 1667,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/services/menu.data.factory.js",
+			"contents": "        question = ,\n        question_write = ,\n        question_answer = ,\n        question_comment = ,\n        post = ,\n        post_write = ,\n        post_comment = ,\n        article = ,\n        article_write = ,\n        article_comment = ,\n        article_setArticleVisibilityOnMainsite = ,\n        group = ,\n        contact = ,\n        profile = ,\n        profile_update = ,\n        profileSetting = ,\n        profileSetting_update = ,\n        profileSetting_emailNotification = ,\n        fee = ,\n        fee_comment = ,\n        faq = ,\n        rankingTable = ,\n        message = ,\n        message_send = ,\n        search = ,\n        notification = ,\n        invitation = ,\n        feedback = ,\n",
 			"settings":
 			{
-				"buffer_size": 1741,
+				"buffer_size": 700,
+				"line_ending": "Windows",
+				"name": "question = ,"
+			}
+		},
+		{
+			"file": "src/main.dailymenu.js",
+			"settings":
+			{
+				"buffer_size": 985,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "'use strict';\n\n//var _ = window._ || require('lodash');\n\nHttpService.$inject = [\n\t'$q',\n\t'$http'\n];\n\nfunction HttpService($q, $http){\n\tvar service = {\n\t\tgetWrapper: getWrapper,\n\t\tinterceptResponse: interceptResponse\n\t};\n\n\treturn service;\n\n\tfunction getWrapper(uri){\n\n\t\tvar promise = $http.get(uri)\n\t\t\t.then(function(/*result*/){\n\t\t\t\treturn interceptResponse(result);\n\t\t\t})\n\t\t\t.catch(function(error) {\n\t\t\t\tconsole.log(error);\n\t\t\t\tconsole.error('Error on GET call');\n        \t});\n    \t;\n\n\t\treturn promise;\n\t}\n\n\t/**\n\t * This method will return the data only from the response\n\t * @param {Object} response - the entire response from the api\n\t * @returns {Object} data\n\t */\n\tfunction interceptResponse(response) {\n\t\tvar data = response.data;\n\t\treturn data;\n\t}\n\n}\n\nmodule.exports = HttpService;",
+			"file": "src/services/http.service.factory.js",
+			"file_size": 831,
+			"file_write_time": 131384748879687041,
+			"settings":
+			{
+				"buffer_size": 788,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "'use strict';\n\n//var _ = window._ || require('lodash');\n\nMenu.$inject = \t[\n\t'DailyMenu.Menu.Config'\n];\n\nfunction Menu(DailyMenuMenuConfig) {\n\tvar directive = {\n\t\trestrict: 'E',\n\t\treplace: true,\n\t\ttemplateUrl: DailyMenuMenuConfig.partialPath.concat('menu.template.html'),\n\t\tscope: {},\n\t\tbindtoController: {\n\n\t\t},\n\t\tcontrollerAs: 'ctrl',\n\t\tcontroller: MenuController\n\t};\n\n\t\n\tMenuController.$inject = [\n\t\t'MenuFactory'\n\t];\n\n\n\tfunction MenuController(MenuFactory) {\n\t\tvar vm = this;\n\n\t\t//properties\n\t\tvm.AvailableLunchMenus = [];\n\t\tvm.AvailableDinnerMenus = [];\n\n\t\t//methods\n\t\tvm.getAvailableMenusForLunch = getAvailableMenusForLunch;\n\t\tvm.setAvailableMenusForLunch = setAvailableMenusForLunch;\n\n\t\treturn init();\n\n\t\t/**\n\t\t   * This is the init method\n\t\t*/\n\t\tfunction init() {\n\t\t\tvm.getAvailableMenusForLunch();\n\t\t}\n\n\t\tfunction getAvailableMenusForLunch() {\n\t\t\tMenuFactory\n\t\t\t\t.getAvailableMenus('Lunch')\n\t\t\t\t.then(vm.setAvailableMenusForLunch)\n\t\t\t\t.catch(onGetError);\n\n//\t\t\tvar toReturn = MenuFactory.getAvailableMenus('Lunch');\n//\t\t\tconsole.log(toReturn);\n//\t\t\treturn toReturn;\n\t\t}\n\n\t\tfunction setAvailableMenusForLunch(availableMenus) {\n\t\t\tvm.AvailableLunchMenus = availableMenus;\n\t\t}\n\n\t\tfunction onGetError(error){\n\t\t\tconsole.error(error);\n\t\t}\t\t\n\n\t}\n\t\n\treturn directive;\n}\n\nmodule.exports = Menu;",
+			"file": "src/menu/menu.directive.js",
+			"file_size": 1366,
+			"file_write_time": 131384703635224527,
+			"settings":
+			{
+				"buffer_size": 1295,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/config/api.config.js",
+			"settings":
+			{
+				"buffer_size": 131,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/config/config.js",
+			"settings":
+			{
+				"buffer_size": 400,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -79,35 +131,60 @@
 	"expanded_folders":
 	[
 		"/C/Jose/LearningAngular/DailyMenu",
-		"/C/Jose/LearningAngular/DailyMenu/dist",
-		"/C/Jose/LearningAngular/DailyMenu/dist/js",
 		"/C/Jose/LearningAngular/DailyMenu/src",
 		"/C/Jose/LearningAngular/DailyMenu/src/config",
+		"/C/Jose/LearningAngular/DailyMenu/src/layout",
 		"/C/Jose/LearningAngular/DailyMenu/src/menu",
 		"/C/Jose/LearningAngular/DailyMenu/src/services",
 		"/C/Jose/LearningAngular/DailyMenu/src/templates"
 	],
 	"file_history":
 	[
+		"/C/Users/Jose.Martinez/Downloads/bollocks.sql",
+		"/C/Jose/LearningAngular/DailyMenu/gulpfile.js",
+		"/C/Jose/LearningAngular/DailyMenu/dist/js/angularjs.dailymenu.all.js",
+		"/C/Jose/LearningAngular/DailyMenu/.jshintrc",
+		"/C/Jose/LearningAngular/DailyMenu/.jscsrc",
+		"/C/Jose/LearningAngular/DailyMenu/src/templates/templates.js",
+		"/C/Jose/LearningAngular/DailyMenu/src/menu/_module.js",
+		"/C/Users/Jose.Martinez/AppData/Roaming/Sublime Text 3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
+		"/C/Jose/LearningAngular/DailyMenu/src/services/_module.js",
+		"/C/Temp/bb/00137.Populate.PermissionsTypesPermissions.Marketeer.sql",
+		"/C/Temp/bb/00136.Populate.PermissionsTypesPermissions.Client.sql",
+		"/C/Temp/bb/00135.Populate.PermissionsTypesPermissions.Lawyer.sql",
+		"/C/Temp/bb/00134.Add.PermissionsTypesPermissions.Table.sql",
+		"/C/Temp/stuff.html",
+		"/C/gitHubRepository/ConnectApi/Connect.Entities - Copy/App.Config",
+		"/C/gitHubRepository/ConnectApi/Connect.Entities - Copy/EntitiesModel.Context.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Entities - Copy/EntitiesModel.Context.tt",
+		"/C/gitHubRepository/ConnectApi/Connect.Entities - Copy/EntitiesModel.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Entities - Copy/EntitiesModel.Designer.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Entities - Copy/Partials/EntitiesModel.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Entities - Copy/Partials/UserProfileType.cs",
+		"/C/gitHubRepository/ConnectApi/Connect.Modules/Connect.Random/paket.references",
+		"/C/gitHubRepository/ConnectApi/Connect.Modules/Connect.Paging/paket.references",
+		"/C/Jose/LearningAngular/DailyMenu/src/menu/menu.directive.js",
+		"/C/Jose/LearningAngular/DailyMenu/src/menu/menu.template.html",
+		"/C/Jose/LearningAngular/DailyMenu/index.html",
+		"/C/Jose/LearningAngular/DailyMenu/index.template.html",
+		"/C/Jose/LearningAngular/DailyMenu/src/style/_menu.scss",
+		"/C/Jose/LearningAngular/DailyMenu/src/style/_header.scss",
+		"/C/gitHubRepository/ConnectApi/Connect.Modules/Connect.Email/paket.references",
+		"/C/gitHubRepository/ConnectApi/Build/Configs/local.json",
+		"/C/gitHubRepository/ConnectApi/.gitignore",
+		"/C/gitHubRepository/ConnectApi/Connect.Entities/EntitiesModel.edmx",
+		"/C/Jose/LearningAngular/DailyMenu/dm.sublime-project",
+		"/C/Jose/LearningAngular/DailyMenu/src/style/main.scss",
+		"/C/Jose/LearningAngular/DailyMenu/dist/style/style.css",
 		"/C/Jose/LearningAngular/DailyMenu/src/services/menu.data.factory.js",
 		"/C/Jose/LearningAngular/DailyMenu/src/config/api.config.js",
-		"/C/Jose/LearningAngular/DailyMenu/src/menu/_module.js",
-		"/C/Jose/LearningAngular/DailyMenu/src/menu/menu.template.html",
-		"/C/Jose/LearningAngular/DailyMenu/src/services/_module.js",
 		"/C/Jose/LearningAngular/DailyMenu/src/templates/_module.js",
-		"/C/Jose/LearningAngular/DailyMenu/gulpfile.js",
 		"/C/Jose/LearningAngular/DailyMenu/src/config/config.js",
-		"/C/Jose/LearningAngular/DailyMenu/index.html",
-		"/C/Jose/LearningAngular/DailyMenu/src/menu/menu.directive.js",
 		"/C/Jose/LearningAngular/DailyMenu/src/main.dailymenu.js",
 		"/C/Jose/LearningAngular/DailyMenu/src/menu/test.directive.js",
-		"/C/Jose/LearningAngular/DailyMenu/src/templates/templates.js",
 		"/C/Jose/LearningAngular/DailyMenu/package.json",
-		"/C/Jose/LearningAngular/DailyMenu/.jscsrc",
-		"/C/Jose/LearningAngular/DailyMenu/.jshintrc",
 		"/C/Jose/LearningAngular/DailyMenu/src/gulpfile.js",
 		"/C/Jose/LearningAngular/DailyMenu/main.dailymenu.js",
-		"/C/Jose/LearningAngular/DailyMenu/index.template.html",
 		"/C/Jose/LearningAngular/DailyMenu/templates/_module.js",
 		"/C/Jose/LearningAngular/DailyMenu/menu/menu.template.html",
 		"/C/Jose/LearningAngular/DailyMenu/menu/menu.directive.js",
@@ -116,7 +193,6 @@
 		"/C/Users/Jose.Martinez/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
 		"/C/Users/Jose.Martinez/AppData/Roaming/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
 		"/C/Users/Jose.Martinez/AppData/Roaming/Sublime Text 3/Packages/User/AngularJS-sublime-package.sublime-settings",
-		"/C/Users/Jose.Martinez/AppData/Roaming/Sublime Text 3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
 		"/C/Users/Jose.Martinez/AppData/Roaming/Sublime Text 3/Packages/User/AngularJS-js-completions.sublime-settings",
 		"/C/Jose/LearningAngular/DailyMenu/style/main.scss",
 		"/C/Jose/LearningAngular/DailyMenu/config/config.js",
@@ -180,6 +256,38 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"GO\n\n",
+			"'Kevin@MitnickAndPartners.com'",
+			"Permissions",
+			"CommentComment",
+			"CommentArticle",
+			"CommentAnswer",
+			"AnswerQuestion",
+			"response",
+			"Error on GET call",
+			"MenuDataFactory",
+			"GET_MENU",
+			"[[",
+			"litigationORtemp",
+			"GO\n",
+			"litigationDPtemp",
+			"GO\n",
+			"GO\n\n",
+			"76472",
+			"1",
+			"1830",
+			"GO\n",
+			"GO",
+			"pennyORtemp",
+			"pennyDPtemp",
+			")\nGO",
+			"OrganisationRankingTODELETE",
+			"modified:   ",
+			"IsSearchable",
+			"indexfile",
+			"h2",
+			"Today",
+			"Lunch option",
 			"getAvailableMenus",
 			"MenuFactoryProvider",
 			"services",
@@ -268,6 +376,23 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
+			"N'{context.UserName}'",
+			"AnswerQuestion  ",
+			"CreateQuestion ",
+			"Question",
+			"Rfi",
+			"OrganisationRanking",
+			"",
+			"DepartmentProfile",
+			"",
+			"\n",
+			"OrganisationRanking",
+			"DepartmentProfile",
+			"DepartmentProfile\n",
+			")\n",
+			"OrganisationRanking",
+			"h4",
 			"'",
 			"setAvailableMenusForDinner",
 			"setAvailableMenusForLunch",
@@ -305,24 +430,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/menu/menu.directive.js",
+					"file": "src/services/menu.data.factory.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1281,
+						"buffer_size": 1667,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1120,
-								1120
+								845,
+								845
 							]
 						],
 						"settings":
@@ -331,27 +456,55 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 456.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 700,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								700
+							]
+						],
+						"settings":
+						{
+							"auto_name": "question = ,",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "src/services/menu.data.factory.js",
+					"buffer": 2,
+					"file": "src/main.dailymenu.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1741,
+						"buffer_size": 985,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								231,
-								231
+								0,
+								0
 							]
 						],
 						"settings":
@@ -360,10 +513,123 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 216.0,
+						"translation.y": 486.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/services/http.service.factory.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 788,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								754,
+								669
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/menu/menu.directive.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1295,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1235,
+								1235
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 337.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/config/api.config.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 131,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								127,
+								127
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/config/config.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								400,
+								400
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -408,7 +674,7 @@
 	"project": "dm.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 134.0
 	},
 	"save_all_on_build": true,
 	"select_file":

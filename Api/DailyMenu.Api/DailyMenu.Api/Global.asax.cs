@@ -14,11 +14,11 @@ namespace DailyMenu.Api
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            GlobalConfiguration.Configure(WebApiConfig.Configure);
+            GlobalConfiguration.Configure(WebApiConfig.Register);
 
             GlobalConfiguration.Configuration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
 
-            ServiceLocator = new Bootstrapper().Start();
+            ServiceLocator = new WebApiBootstrapper().Start();
 
             GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator), new ControllerActivator());
         }
