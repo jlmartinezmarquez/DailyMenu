@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Net.Http;
 using DailyMenu.Api;
 using DailyMenu.Configuration;
+using DailyMenu.Json;
 using Microsoft.Owin.Testing;
 using NUnit.Framework;
 
@@ -13,6 +15,10 @@ namespace DailyMenu.Tests.Framework
         protected NinjectResolver Ninject;
 
         private readonly IConfigurationService _configurationService = new ConfigurationService();
+
+        public JsonService Client;
+
+        protected HttpClient HttpsClient { get; set; }
 
         public string BaseUri => _configurationService["Development.Uri"];
 
@@ -29,7 +35,11 @@ namespace DailyMenu.Tests.Framework
                 apiStartup.Configuration(app);
             });
 
-            WebApiServer.BaseAddress = new Uri("localhost");
+            WebApiServer.BaseAddress = new Uri("http://localhost:8080");
+
+            HttpsClient = new HttpClient(WebApiServer.Handler);
+
+            Client = new JsonService(HttpsClient);
 
             Ninject = new NinjectResolver(Startup.Kernel);
 

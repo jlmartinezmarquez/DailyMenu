@@ -62,8 +62,8 @@
       <HintPath>..\packages\Microsoft.Owin.Testing.3.1.0\lib\net45\Microsoft.Owin.Testing.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
@@ -92,8 +92,8 @@
       <HintPath>..\packages\System.Reactive.4.0.0-preview00001\lib\net45\System.Reactive.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
@@ -104,7 +104,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="EndToEnd\MenuEndToEndTests.cs" />
     <Compile Include="Framework\EndToEndTestUri.cs" />
     <Compile Include="Framework\EntToEndTestBase.cs" />
     <Compile Include="Framework\NinjectResolver.cs" />
@@ -116,7 +116,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EndToEnd\" />
     <Folder Include="Integration\" />
     <Folder Include="Unit\" />
   </ItemGroup>
@@ -129,9 +128,17 @@
       <Project>{3B0AA266-B83B-4219-A7B3-D803C1F3B750}</Project>
       <Name>DailyMenu.Configuration</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DailyMenu.JsonService\DailyMenu.Json.csproj">
+      <Project>{69AAF471-3C30-4AE5-AB2D-80AD0EDA6B26}</Project>
+      <Name>DailyMenu.Json</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DailyMenu.Lifetime\DailyMenu.Lifetime.csproj">
       <Project>{62536A0D-B1A8-4BDD-8F6B-9A6B0EECF4C0}</Project>
       <Name>DailyMenu.Lifetime</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DailyMenu.Models\DailyMenu.Models.csproj">
+      <Project>{4B629905-9BF6-487C-A2CE-1FB20BF5A467}</Project>
+      <Name>DailyMenu.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\DailyMenu.Repositories\DailyMenu.Repositories.csproj">
       <Project>{A0044C8E-8408-4EB2-834B-323CF1003146}</Project>
