@@ -16,7 +16,7 @@ namespace DailyMenu.Tests.Framework
 
         private readonly IConfigurationService _configurationService = new ConfigurationService();
 
-        public JsonService Client;
+        public JsonService JsonServiceClient;
 
         protected HttpClient HttpsClient { get; set; }
 
@@ -35,11 +35,11 @@ namespace DailyMenu.Tests.Framework
                 apiStartup.Configuration(app);
             });
 
-            WebApiServer.BaseAddress = new Uri("http://localhost:8080");
+            WebApiServer.BaseAddress = new Uri("http://localhost");
 
             HttpsClient = new HttpClient(WebApiServer.Handler);
 
-            Client = new JsonService(HttpsClient);
+            JsonServiceClient = new JsonService(HttpsClient);
 
             Ninject = new NinjectResolver(Startup.Kernel);
 

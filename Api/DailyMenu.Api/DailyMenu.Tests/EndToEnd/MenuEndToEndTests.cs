@@ -12,9 +12,9 @@ namespace DailyMenu.Tests.EndToEnd
         [Test]
         public void Should_get_menus()
         {
-            var uri = "http://localhost:8080/api/menu";
+            var uri = "http://localhost/api/menu";
 
-            var listOfMenus = Client.Get<List<MenuModel>>(uri);
+            var listOfMenus = JsonServiceClient.Get<List<MenuModel>>(uri);
 
             Assert.That(listOfMenus.Any());
         }
