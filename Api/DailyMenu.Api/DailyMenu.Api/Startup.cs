@@ -24,6 +24,8 @@ namespace DailyMenu.Api
             InjectKernel(config, app);
 
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);  //TODO: Restrict this a bit more
+
+            app.UseWebApi(config);
         }
 
         private void InjectKernel(HttpConfiguration config, IAppBuilder app)

@@ -9,6 +9,12 @@ namespace DailyMenu.Tests.EndToEnd
     [TestFixture]
     public class MenuEndToEndTests : EntToEndTestBase
     {
+        [OneTimeSetUp]
+        protected override void OneTimeSetup()
+        {
+            base.OneTimeSetup();
+        }
+
         [Test]
         public void Should_get_menus()
         {
