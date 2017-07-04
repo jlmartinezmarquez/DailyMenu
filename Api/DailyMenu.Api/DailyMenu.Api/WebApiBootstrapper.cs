@@ -16,7 +16,7 @@ namespace DailyMenu.Api
         Instance
     }
 
-    public class Bootstrapper : IDisposable
+    public class WebApiBootstrapper : IDisposable
     {
         private StandardKernel _kernel;
 

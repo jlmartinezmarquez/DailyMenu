@@ -6,7 +6,7 @@ namespace DailyMenu.Api.App_Start
 {
     public class WebApiConfig
     {
-        public static void Configure(HttpConfiguration config)
+        public static void Register(HttpConfiguration config)
         {
             config.MapHttpAttributeRoutes();
 
